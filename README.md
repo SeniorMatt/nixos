@@ -1,6 +1,9 @@
 # My NixOS setup.
 NixOS Unstable x Niri x Noctalia.
 
+<img width="1920" height="1080" alt="Screenshot from 2026-09-08 03-09-05" src="https://github.com/user-attachments/assets/72b23771-2273-4769-8d27-649f15650b11" />
+
+
 # Structure:
 `flake.nix` - entrypoint.
 
