@@ -1,10 +1,10 @@
-{ self, ... }:
+{ self, inputs, ... }:
 {
   flake = {
     user = "matthew";
   };
 
-  flake.nixosModules.base = { pkgs, ... }: {
+  flake.nixosModules.base = { pkgs, config, ... }: {
 
     # Enable automatic garbage collection.
     nix.gc = {
@@ -24,14 +24,14 @@
       self.nixosModules.home-manager
       self.nixosModules.kitty 
       self.nixosModules.niri
+      self.nixosModules.obs-studio
       self.nixosModules.zsh
     ];
     
     environment.systemPackages = with pkgs; [
-      firefox
-      mpv
+      inputs.helium.packages.${system}.default
       kdePackages.dolphin
-      obs-studio
+      mpv
       obsidian
       telegram-desktop
       vesktop

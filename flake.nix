@@ -12,6 +12,10 @@
 
     noctalia.url = "github:noctalia-dev/noctalia/cachix";
     nixvim.url = "github:nix-community/nixvim";
+    helium = {
+      url = "github:schembriaiden/helium-browser-nix-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Downgrading xwayland-satellite because 0.8.2 introduces a lot of issues, mainly:
     # https://github.com/Supreeeme/xwayland-satellite/issues/470 - DaVinci Resolve crash.
