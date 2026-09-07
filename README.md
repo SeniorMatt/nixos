@@ -1,4 +1,5 @@
 # My NixOS setup.
+NixOS Unstable x Niri x Noctalia.
 
 # Structure:
 `flake.nix` - entrypoint.
@@ -13,11 +14,13 @@
 
 # To do:
 - [x] DaVinci Resolve
-- [x] Steam
-- [x] PrismLauncher
 - [x] Gamedev 
- - [x] Neovim
- - [x] Tmux
+- [x] Niri
+- [x] Noctalia
+- [x] PrismLauncher
+- [x] Steam
  - [x] Git
  - [x] Godot
+ - [x] Neovim
+ - [x] Tmux
  - [x] Unity
