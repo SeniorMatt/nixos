@@ -2,9 +2,13 @@
 
 # Structure:
 `flake.nix` - entrypoint.
+
 `modules/home.nix` - home manager settings.
+
 `modules/hosts` - contains all the different hosts.
+
 `modules/programs` - for programs that require more than just installing one package.
+
 `modules/sessions` - everything related to the session.
 
 # To do:
