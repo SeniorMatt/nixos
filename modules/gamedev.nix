@@ -9,10 +9,10 @@
     
     environment.systemPackages = with pkgs; [
       (bottles.override { removeWarningPopup = true; })
+      aseprite
       dotnet-sdk
       gnome-clocks
       godot-mono
-      libresprite
       steam-run
       tree
       unityhub

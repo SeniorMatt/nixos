@@ -40,6 +40,9 @@
       pulse.enable = true;
     };
 
+    # Enable bluetooth.
+    hardware.bluetooth.enable = true;
+
     # Enable OpenCL support.
     hardware.graphics = {
       enable = true;
