@@ -12,6 +12,7 @@
       dotnet-sdk
       gnome-clocks
       godot-mono
+      libresprite
       steam-run
       tree
       unityhub
