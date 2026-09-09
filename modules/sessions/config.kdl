@@ -387,6 +387,7 @@ binds {
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Shift+C hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+Shift+B hotkey-overlay-title="Open a Browser: helium" { spawn "helium"; }
+    Mod+E hotkey-overlay-title="Open a File Manager: dolphin" { spawn "dolphin"; }
     Mod+D hotkey-overlay-title="Run an Application launcher" { spawn-sh "noctalia msg panel-toggle launcher"; }
     Mod+A { spawn-sh "noctalia msg panel-toggle wallpaper"; }
     Mod+S { spawn-sh "noctalia msg panel-toggle control-center"; }

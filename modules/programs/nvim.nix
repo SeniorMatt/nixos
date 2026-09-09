@@ -31,6 +31,12 @@
   in {
     imports = [ inputs.nixvim.nixosModules.nixvim ];
 
+    environment.variables = { 
+      EDITOR = "nvim"; 
+      VISUAL = "nvim"; 
+      MANPAGER = "nvim +Man!";
+    };
+    
     programs.nixvim = {
       nixpkgs.config.allowUnfree = true;
       enable = true;

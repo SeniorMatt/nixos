@@ -4,7 +4,7 @@
     user = "matthew";
   };
 
-  flake.nixosModules.base = { pkgs, config, ... }: {
+  flake.nixosModules.base = { pkgs, ... }: {
 
     # Enable automatic garbage collection.
     nix.gc = {
@@ -29,13 +29,36 @@
     ];
     
     environment.systemPackages = with pkgs; [
+      # eog
       inputs.helium.packages.${system}.default
       kdePackages.dolphin
+      kdePackages.koko
+      kdePackages.okular
       mpv
       obsidian
       telegram-desktop
       vesktop
     ];
+
+    home-manager.users.${self.user} = {
+      xdg.mimeApps = {
+	enable = true;
+	defaultApplications = let 
+	  documentViewer = "org.kde.okular.desktop";
+	  imageViewer = "org.kde.koko.desktop";
+	  mediaPlayer = "mpv.desktop";
+	in {
+	  "application/pdf" = documentViewer;
+	  "audio/mpeg" = mediaPlayer;
+	  "audio/ogg" = mediaPlayer;
+	  "image/jpeg" = imageViewer;
+	  "image/png" = imageViewer;
+	  "video/mp4" = mediaPlayer;
+	  "video/mpeg" = mediaPlayer;
+	  "video/webm" = mediaPlayer;
+	};
+      };
+    };
 
     fonts.packages = with pkgs; [
       nerd-fonts.jetbrains-mono
