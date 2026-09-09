@@ -397,6 +397,7 @@ binds {
     Mod+Shift+G { spawn "godot-mono"; }
     Mod+Shift+T { spawn "Telegram"; }
     Mod+Shift+O { spawn "obsidian"; }
+    Mod+Shift+D { spawn "vesktop"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
