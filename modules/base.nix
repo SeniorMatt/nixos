@@ -32,6 +32,7 @@
       # eog
       inputs.helium.packages.${system}.default
       kdePackages.dolphin
+      kdePackages.ffmpegthumbs
       kdePackages.koko
       kdePackages.okular
       mpv
