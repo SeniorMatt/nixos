@@ -17,7 +17,7 @@
 	enable = true;
 
 	# Export coctalia's config, then run this command:
-	# cd ~/ && nix run github:erooke/toml2nix noctalia-config.toml | wl-copy
+	# cd ~/ && nix run github:erooke/toml2nix noctalia-config.toml | wl-copy && rm noctalia-config.toml
 	# and paste the results here.
 	settings = {
 	accessibility = {
@@ -34,6 +34,12 @@
 			radius_bottom_left = 0;
 			radius_top_left = 0;
 		};
+	};
+	keybinds = {
+		down = [ "Down" "Ctrl+j" ];
+		left = [ "Left" "Ctrl+h" ];
+		right = [ "Right" "Ctrl+l" ];
+		up = [ "Up" "Ctrl+k" ];
 	};
 	location = {
 		auto_locate = true;
@@ -107,14 +113,14 @@
 	};
 	wallpaper = {
 		default = {
-			path = "/home/matthew/Pictures/nature.jpg";
+			path = "/home/matthew/Pictures/clouds.jpg";
 		};
 		last = {
-			path = "/home/matthew/Pictures/nature.jpg";
+			path = "/home/matthew/Pictures/clouds.jpg";
 		};
 		monitors = {
 			eDP-1 = {
-				path = "/home/matthew/Pictures/nature.jpg";
+				path = "/home/matthew/Pictures/clouds.jpg";
 			};
 		};
 	};
