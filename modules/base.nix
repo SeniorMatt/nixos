@@ -56,6 +56,7 @@
 	  "image/png" = imageViewer;
 	  "video/mp4" = mediaPlayer;
 	  "video/mpeg" = mediaPlayer;
+	  "video/quicktime" = mediaPlayer;
 	  "video/webm" = mediaPlayer;
 	};
       };
