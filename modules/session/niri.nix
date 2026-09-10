@@ -31,7 +31,7 @@
 
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-    home-manager.users.matthew = {
+    home-manager.users.${self.user} = {
       xdg.configFile."niri/config.kdl".source = ./config.kdl;
     };
   };

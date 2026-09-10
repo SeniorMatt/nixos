@@ -16,7 +16,7 @@
 	autosuggestion.enable = true;
 	enableCompletion = true;
 	syntaxHighlighting.enable = true;
-	initContent = "printf '\\e[?7l'"; # Disable wrapping.
+	# initContent = "printf '\\e[?7l'"; # Disable wrapping.
 	oh-my-zsh = {
 	  enable = true;
 	  plugins = [ "sudo" ]; # Allows to double press escape to add 'sudo'.
