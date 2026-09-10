@@ -5,6 +5,7 @@
     programs.kdeconnect.enable = true;
     environment.systemPackages = with pkgs; [
       handbrake
+      video-downloader
       video-trimmer
     ];
   };
