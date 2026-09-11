@@ -15,9 +15,8 @@ NixOS Unstable x Niri x Noctalia.
 
 `modules/sessions` - everything related to the session.
 
-I've only used AI in two places: 
+I only used AI to help with: 
 - compilying 'neopywal' plugin.
-- 'ripple-cut-script.py' for blender.
 
 # To do:
 - [x] DaVinci Resolve

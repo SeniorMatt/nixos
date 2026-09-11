@@ -340,6 +340,11 @@ debug {
   honor-xdg-activation-with-invalid-serial
 }
 
+window-rule {
+    match app-id=r#"^fl64\.exe$"#
+    open-fullscreen true
+}
+
 // Floating Noctalia settings window.
 window-rule {
   match app-id="dev.noctalia.Noctalia"
