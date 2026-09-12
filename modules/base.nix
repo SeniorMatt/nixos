@@ -30,6 +30,7 @@
 
     environment.systemPackages = with pkgs; [
       # eog
+      anki
       inputs.helium.packages.${system}.default
       kdePackages.dolphin
       kdePackages.ffmpegthumbs
