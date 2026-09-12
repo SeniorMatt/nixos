@@ -7,8 +7,8 @@
     services.displayManager.ly = {
       enable = true;
       settings = {
-	animation = "gameoflife";
-	session_log = "null";
+        animation = "gameoflife";
+        session_log = "null";
       };
     };
 
@@ -16,7 +16,12 @@
     services.gnome.gnome-keyring.enable = true;
 
     environment.systemPackages = [
-      (let pkgs = import inputs.nixpkgs-xwayland-satellite-0-8-1 { system = "x86_64-linux"; }; in pkgs.xwayland-satellite) # Downgrade xwayland-satellite to 0.8.1
+      (
+        let
+          pkgs = import inputs.nixpkgs-xwayland-satellite-0-8-1 { system = "x86_64-linux"; };
+        in
+        pkgs.xwayland-satellite
+      ) # Downgrade xwayland-satellite to 0.8.1
     ];
 
     services.udisks2.enable = true;
@@ -25,7 +30,7 @@
       enable = true;
       extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
       config.niri = {
-	"org.freedesktop.impl.portal.FileChooser" = [ "kde" ]; # or "gtk"
+        "org.freedesktop.impl.portal.FileChooser" = [ "kde" ]; # or "gtk"
       };
     };
 

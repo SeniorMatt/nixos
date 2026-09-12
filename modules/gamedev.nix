@@ -1,12 +1,12 @@
 { self, ... }:
 {
   flake.nixosModules.gamedev = { pkgs, ... }: {
-    imports = [ 
+    imports = [
       self.nixosModules.git
-      self.nixosModules.neovim 
+      self.nixosModules.neovim
       self.nixosModules.tmux
     ];
-    
+
     environment.systemPackages = with pkgs; [
       (bottles.override { removeWarningPopup = true; })
       aseprite

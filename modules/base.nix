@@ -19,15 +19,15 @@
     # Allow unfree packages.
     nixpkgs.config.allowUnfree = true;
 
-    imports = [ 
+    imports = [
       self.nixosModules.fastfetch
       self.nixosModules.home-manager
-      self.nixosModules.kitty 
+      self.nixosModules.kitty
       self.nixosModules.niri
       self.nixosModules.obs-studio
       self.nixosModules.zsh
     ];
-    
+
     environment.systemPackages = with pkgs; [
       # eog
       inputs.helium.packages.${system}.default
@@ -43,22 +43,24 @@
 
     home-manager.users.${self.user} = {
       xdg.mimeApps = {
-	enable = true;
-	defaultApplications = let 
-	  documentViewer = "org.kde.okular.desktop";
-	  imageViewer = "org.kde.koko.desktop";
-	  mediaPlayer = "mpv.desktop";
-	in {
-	  "application/pdf" = documentViewer;
-	  "audio/mpeg" = mediaPlayer;
-	  "audio/ogg" = mediaPlayer;
-	  "image/jpeg" = imageViewer;
-	  "image/png" = imageViewer;
-	  "video/mp4" = mediaPlayer;
-	  "video/mpeg" = mediaPlayer;
-	  "video/quicktime" = mediaPlayer;
-	  "video/webm" = mediaPlayer;
-	};
+        enable = true;
+        defaultApplications =
+          let
+            documentViewer = "org.kde.okular.desktop";
+            imageViewer = "org.kde.koko.desktop";
+            mediaPlayer = "mpv.desktop";
+          in
+          {
+            "application/pdf" = documentViewer;
+            "audio/mpeg" = mediaPlayer;
+            "audio/ogg" = mediaPlayer;
+            "image/jpeg" = imageViewer;
+            "image/png" = imageViewer;
+            "video/mp4" = mediaPlayer;
+            "video/mpeg" = mediaPlayer;
+            "video/quicktime" = mediaPlayer;
+            "video/webm" = mediaPlayer;
+          };
       };
     };
 
