@@ -30,3 +30,5 @@ I only used AI to help with:
  - [x] Neovim
  - [x] Tmux
  - [x] Unity
+- [ ] Change Dolphin's default terminal to Kitty
+- [ ] Install tar utility

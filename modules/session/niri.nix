@@ -7,7 +7,7 @@
     services.displayManager.ly = {
       enable = true;
       settings = {
-        animation = "gameoflife";
+        animation = "doom";
         session_log = "null";
       };
     };
@@ -29,9 +29,12 @@
     xdg.portal = {
       enable = true;
       extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
-      config.niri = {
-        "org.freedesktop.impl.portal.FileChooser" = [ "kde" ]; # or "gtk"
-      };
+      config.niri."org.freedesktop.impl.portal.FileChooser" = [ "kde" ]; # or "gtk"
+    };
+
+    systemd.user.services.xdg-desktop-portal-gnome = {
+      after = [ "graphical-session.target" ];
+      partOf = [ "graphical-session.target" ];
     };
 
     environment.sessionVariables.NIXOS_OZONE_WL = "1";

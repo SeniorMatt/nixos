@@ -29,9 +29,9 @@
     ];
 
     environment.systemPackages = with pkgs; [
-      # eog
       anki
       inputs.helium.packages.${system}.default
+      kdePackages.ark
       kdePackages.dolphin
       kdePackages.ffmpegthumbs
       kdePackages.koko
