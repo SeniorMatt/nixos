@@ -1,11 +1,9 @@
 { self, inputs, ... }:
 {
-  flake.nixosModules.noctalia = { pkgs, lib, ... }: {
+  flake.nixosModules.noctalia = { pkgs, ... }: {
     environment.systemPackages = with pkgs; [
       btop
       kdePackages.qt6ct
-      python3
-      uv
       wl-clipboard
     ];
 
@@ -45,6 +43,56 @@
               position = "left";
               radius_bottom_left = 0;
               radius_top_left = 0;
+            };
+          };
+          desktop_widgets = {
+            schema_version = 2;
+            widget_order = [
+              "desktop-widget-0000000000000002"
+              "desktop-widget-0000000000000001"
+            ];
+            grid = {
+              cell_size = 16;
+              major_interval = 4;
+              visible = true;
+            };
+            widget = {
+              desktop-widget-0000000000000001 = {
+                box_height = 144.0;
+                box_width = 544.0;
+                cx = 960.0;
+                cy = 620.0;
+                output = "eDP-1";
+                placement_height = 1080.0;
+                placement_width = 1920.0;
+                rotation = 0.0;
+                type = "audio_visualizer";
+                settings = {
+                  background = false;
+                  bands = 20;
+                  color_1 = "primary";
+                  color_2 = "secondary";
+                  show_when_idle = true;
+                };
+              };
+              desktop-widget-0000000000000002 = {
+                box_height = 260.38671875;
+                box_width = 582.0;
+                cx = 960.0;
+                cy = 460.0;
+                output = "eDP-1";
+                placement_height = 1080.0;
+                placement_width = 1920.0;
+                rotation = 0.0;
+                type = "clock";
+                settings = {
+                  background = false;
+                  clock_style = "digital";
+                  color = "primary";
+                  font_family = "";
+                  shadow = true;
+                };
+              };
             };
           };
           keybinds = {
@@ -110,6 +158,14 @@
           nightlight = {
             enabled = true;
           };
+          plugin_settings = {
+            "noctalia/translator" = {
+              target_lang = "ru";
+            };
+          };
+          plugins = {
+            enabled = [ "noctalia/translator" ];
+          };
           shell = {
             font_family = "JetBrainsMono Nerd Font Mono";
             niri_overview_type_to_launch_enabled = true;
@@ -160,52 +216,6 @@
           };
         };
       };
-      systemd.user.paths.wallpaper-depth-fix = {
-        Unit.Description = "Watch the wallpaper_depth venv";
-        Path = {
-          PathExists = "%h/.local/state/noctalia/plugins/data/noctalia/wallpaper_depth/runtime/.venv/bin/python";
-          Unit = "wallpaper-depth-fix.service";
-        };
-        Install.WantedBy = [ "default.target" ];
-      };
-
-      systemd.user.services.wallpaper-depth-fix = {
-        Unit = {
-          Description = "Patch the wallpaper_depth venv for NixOS";
-          StartLimitIntervalSec = 0;
-        };
-        Service = {
-          Type = "oneshot";
-          RemainAfterExit = true;
-          Environment = [
-            "PATH=${
-              lib.makeBinPath (
-                with pkgs;
-                [
-                  bash
-                  nix
-                  patchelf
-                  coreutils
-                ]
-              )
-            }"
-          ];
-          ExecStart = toString (
-            pkgs.writeShellScript "fix-depth-venv" ''
-              V="$HOME/.local/state/noctalia/plugins/data/noctalia/wallpaper_depth/runtime/.venv"
-              [ -x "$V/bin/python" ] || exit 0
-              "$V/bin/python" -c "import numpy, onnxruntime, PIL" 2>/dev/null && exit 0
-              exec ${inputs.fix-python.packages.${pkgs.system}.default}/bin/fix-python \
-                --venv "$V" --verbose \
-                --libs ${pkgs.writeText "libs.nix" ''
-                  let pkgs = import ${pkgs.path} { };
-                  in [ pkgs.gcc.cc pkgs.glibc pkgs.zlib ]
-                ''}
-            ''
-          );
-        };
-      };
-
       xdg.configFile = {
         "noctalia/templates/colors-wal.vim".text = ''
           	  let g:background = "{{ colors.terminal_background.default.hex }}"
