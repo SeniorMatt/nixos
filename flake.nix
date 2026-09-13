@@ -17,8 +17,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    fix-python.url = "github:GuillaumeDesforges/fix-python";
-
     # Downgrading xwayland-satellite because 0.8.2 introduces a lot of issues, mainly:
     # https://github.com/Supreeeme/xwayland-satellite/issues/470 - DaVinci Resolve crash.
     # https://github.com/Supreeeme/xwayland-satellite/issues/468 - Steam not rendering popups properly.
