@@ -25,6 +25,7 @@
       self.nixosModules.kitty
       self.nixosModules.niri
       self.nixosModules.obs-studio
+      self.nixosModules.tailscale
       self.nixosModules.zsh
     ];
 

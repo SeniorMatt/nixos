@@ -1,10 +1,12 @@
 { self, inputs, ... }:
 {
-  flake.nixosModules.noctalia = { pkgs, ... }: {
+  flake.nixosModules.noctalia = { pkgs, lib, ... }: {
     environment.systemPackages = with pkgs; [
-      wl-clipboard
       btop
       kdePackages.qt6ct
+      python3
+      uv
+      wl-clipboard
     ];
 
     services.tuned.enable = true;
@@ -156,6 +158,51 @@
               };
             };
           };
+        };
+      };
+      systemd.user.paths.wallpaper-depth-fix = {
+        Unit.Description = "Watch the wallpaper_depth venv";
+        Path = {
+          PathExists = "%h/.local/state/noctalia/plugins/data/noctalia/wallpaper_depth/runtime/.venv/bin/python";
+          Unit = "wallpaper-depth-fix.service";
+        };
+        Install.WantedBy = [ "default.target" ];
+      };
+
+      systemd.user.services.wallpaper-depth-fix = {
+        Unit = {
+          Description = "Patch the wallpaper_depth venv for NixOS";
+          StartLimitIntervalSec = 0;
+        };
+        Service = {
+          Type = "oneshot";
+          RemainAfterExit = true;
+          Environment = [
+            "PATH=${
+              lib.makeBinPath (
+                with pkgs;
+                [
+                  bash
+                  nix
+                  patchelf
+                  coreutils
+                ]
+              )
+            }"
+          ];
+          ExecStart = toString (
+            pkgs.writeShellScript "fix-depth-venv" ''
+              V="$HOME/.local/state/noctalia/plugins/data/noctalia/wallpaper_depth/runtime/.venv"
+              [ -x "$V/bin/python" ] || exit 0
+              "$V/bin/python" -c "import numpy, onnxruntime, PIL" 2>/dev/null && exit 0
+              exec ${inputs.fix-python.packages.${pkgs.system}.default}/bin/fix-python \
+                --venv "$V" --verbose \
+                --libs ${pkgs.writeText "libs.nix" ''
+                  let pkgs = import ${pkgs.path} { };
+                  in [ pkgs.gcc.cc pkgs.glibc pkgs.zlib ]
+                ''}
+            ''
+          );
         };
       };
 
