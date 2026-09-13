@@ -222,8 +222,8 @@
       home.pointerCursor = {
         enable = true;
         gtk.enable = true;
-        package = pkgs.kdePackages.breeze;
-        name = "breeze_cursors";
+        package = pkgs.bibata-cursors;
+        name = "Bibata-Modern-Classic";
         size = 24;
       };
     };
