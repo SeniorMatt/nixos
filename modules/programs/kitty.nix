@@ -8,8 +8,6 @@
         settings = {
           confirm_os_window_close = 0;
           cursor_trail = 1;
-          # cursor_trail_decay = "0.08 0.25";
-          # cursor_trail_start_threshold = 0;
         };
         font = {
           name = "JetBrainsMonoNerdFontMono";
@@ -17,5 +15,10 @@
         };
       };
     };
+    environment.etc."xdg/kdeglobals".text = ''
+      [General]
+      TerminalApplication=kitty
+      TerminalService=kitty.desktop
+    '';
   };
 }
