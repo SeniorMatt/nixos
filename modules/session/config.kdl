@@ -308,6 +308,10 @@ animations {
     // slowdown 3.0
 }
 
+workspace "1"
+workspace "2"
+workspace "3"
+
 // Window rules let you adjust behavior for individual windows.
 // Find more information on the wiki:
 // https://niri-wm.github.io/niri/Configuration:-Window-Rules
