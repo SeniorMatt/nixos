@@ -37,6 +37,7 @@
       kdePackages.ffmpegthumbs
       kdePackages.koko
       kdePackages.okular
+      krita
       mpv
       obsidian
       telegram-desktop
