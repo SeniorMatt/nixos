@@ -7,6 +7,8 @@
       self.nixosModules.base
       self.nixosModules.gamedev
       self.nixosModules.games
+      # self.nixosModules.niri
+      self.nixosModules.plasma
       self.nixosModules.videos
     ];
 

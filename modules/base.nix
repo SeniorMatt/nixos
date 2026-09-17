@@ -23,7 +23,6 @@
       self.nixosModules.fastfetch
       self.nixosModules.home-manager
       self.nixosModules.kitty
-      self.nixosModules.niri
       self.nixosModules.obs-studio
       self.nixosModules.tailscale
       self.nixosModules.zsh
