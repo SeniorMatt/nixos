@@ -5,6 +5,7 @@
       nrb = "sudo nixos-rebuild boot --flake ~/.nixos";
       nrs = "sudo nixos-rebuild switch --flake ~/.nixos";
       nrt = "sudo nixos-rebuild test --flake ~/.nixos";
+      nfu = "sudo nix flake update --flake ~/.nixos";
     };
 
     users.users.${self.user}.shell = pkgs.zsh;

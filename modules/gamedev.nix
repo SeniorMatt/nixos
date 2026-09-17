@@ -2,6 +2,7 @@
 {
   flake.nixosModules.gamedev = { pkgs, ... }: {
     imports = [
+      self.nixosModules.aseprite
       self.nixosModules.git
       self.nixosModules.nvim
       self.nixosModules.tmux
@@ -9,7 +10,7 @@
 
     environment.systemPackages = with pkgs; [
       (bottles.override { removeWarningPopup = true; })
-      aseprite
+      audacity
       dotnet-sdk
       gnome-clocks
       godot-mono
