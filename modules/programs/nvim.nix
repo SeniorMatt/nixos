@@ -1,6 +1,6 @@
 { inputs, ... }:
 {
-  flake.nixosModules.neovim =
+  flake.nixosModules.nvim =
     { pkgs, config, ... }:
     let
       # This neopywal package has been written by AI.
@@ -48,9 +48,24 @@
           relativenumber = true;
           shiftwidth = 2;
         };
+        clipboard = {
+          providers = {
+            wl-copy.enable = true;
+          };
+        };
 
         globals.mapleader = " ";
         keymaps = [
+          # Copy to system clipboard:
+          {
+            mode = [
+              "n"
+              "x"
+            ];
+            key = "<leader>y";
+            action = "\"+y";
+          }
+
           # Manage windows:
           {
             mode = "n";

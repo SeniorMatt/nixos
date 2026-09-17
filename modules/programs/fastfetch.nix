@@ -48,14 +48,15 @@
             "de"
             "wm"
             "wmtheme"
-            "theme"
-            "icons"
             "terminal"
             {
               type = "terminalfont";
               format = "{/name}{-}{/}{name}{?size} {size}{?}";
             }
-            "cpu"
+            {
+              type = "cpu";
+              format = "{name}";
+            }
             {
               type = "gpu";
               key = "GPU";

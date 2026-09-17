@@ -3,7 +3,7 @@
   flake.nixosModules.gamedev = { pkgs, ... }: {
     imports = [
       self.nixosModules.git
-      self.nixosModules.neovim
+      self.nixosModules.nvim
       self.nixosModules.tmux
     ];
 
