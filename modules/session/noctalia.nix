@@ -46,7 +46,7 @@
             order = [ "default" ];
             default = {
               auto_hide = false;
-              background_opacity = 0.8499999642372131;
+              background_opacity = 1.0;
               border = "outline";
               border_width = 0.0;
               capsule = false;
@@ -75,7 +75,7 @@
               margin_opposite_edge = 0;
               padding = 14;
               panel_overlap = 1;
-              position = "left";
+              position = "bottom";
               radius = 0;
               radius_bottom_left = 0;
               radius_bottom_right = 0;
@@ -361,7 +361,7 @@
             temperature_night = 4000;
           };
           notification = {
-            background_opacity = 0.9700000286102295;
+            background_opacity = 1.0;
             border = true;
             collapse_on_dismiss = true;
             enable_daemon = true;
@@ -378,7 +378,7 @@
             show_app_name = true;
           };
           osd = {
-            background_opacity = 0.9700000286102295;
+            background_opacity = 1.0;
             border = true;
             enabled = true;
             monitors = [ ];
@@ -659,6 +659,7 @@
             wallpaper_scheme = "m3-monochrome";
             templates = {
               builtin_ids = [
+                "btop"
                 "gtk3"
                 "gtk4"
                 "kcolorscheme"
