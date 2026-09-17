@@ -8,6 +8,7 @@
       useUserPackages = true;
       extraSpecialArgs = { inherit inputs self; };
       backupFileExtension = "backup";
+      backupCommand = "rm";
 
       users.matthew = {
         home.stateVersion = "26.05";
