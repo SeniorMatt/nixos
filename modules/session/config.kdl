@@ -328,7 +328,10 @@ workspace "3"
 
 window-rule {
   // Rounded corners for a modern look.
-  geometry-corner-radius 12
+  // geometry-corner-radius 12
+
+  // Square corners for a retro look.
+  geometry-corner-radius 0
 
   // Clips window contents to the rounded corner boundaries.
   clip-to-geometry true

@@ -22,7 +22,7 @@
       programs.noctalia = {
         enable = true;
 
-        # Export coctalia's config, then run this command:
+        # Export noctalia's config, then run this command:
         # cd ~/ && nix run github:erooke/toml2nix noctalia-config.toml | wl-copy && rm noctalia-config.toml
         # and paste the results here.
         settings = {
@@ -39,60 +39,31 @@
           bar = {
             default = {
               background_opacity = 0.8499999810010195;
+              capsule_radius = 0;
+              center = [ "workspaces" ];
+              concave_edge_corners = false;
+              end = [
+                "tray"
+                "clipboard"
+                "battery"
+                "session"
+              ];
               margin_ends = 0;
               position = "left";
+              radius = 0;
               radius_bottom_left = 0;
               radius_top_left = 0;
+              shadow = false;
+              start = [ "clock" ];
             };
           };
           desktop_widgets = {
             schema_version = 2;
-            widget_order = [
-              "desktop-widget-0000000000000002"
-              "desktop-widget-0000000000000001"
-            ];
+            widget_order = [ ];
             grid = {
               cell_size = 16;
               major_interval = 4;
               visible = true;
-            };
-            widget = {
-              desktop-widget-0000000000000001 = {
-                box_height = 144.0;
-                box_width = 544.0;
-                cx = 960.0;
-                cy = 620.0;
-                output = "eDP-1";
-                placement_height = 1080.0;
-                placement_width = 1920.0;
-                rotation = 0.0;
-                type = "audio_visualizer";
-                settings = {
-                  background = false;
-                  bands = 20;
-                  color_1 = "primary";
-                  color_2 = "secondary";
-                  show_when_idle = true;
-                };
-              };
-              desktop-widget-0000000000000002 = {
-                box_height = 260.38671875;
-                box_width = 582.0;
-                cx = 960.0;
-                cy = 460.0;
-                output = "eDP-1";
-                placement_height = 1080.0;
-                placement_width = 1920.0;
-                rotation = 0.0;
-                type = "clock";
-                settings = {
-                  background = false;
-                  clock_style = "digital";
-                  color = "primary";
-                  font_family = "";
-                  shadow = true;
-                };
-              };
             };
           };
           keybinds = {
@@ -167,15 +138,25 @@
             enabled = [ "noctalia/translator" ];
           };
           shell = {
+            corner_radius_scale = 0.0;
             font_family = "JetBrainsMono Nerd Font Mono";
             niri_overview_type_to_launch_enabled = true;
+            popup_shadows = false;
+            launcher = {
+              categories = false;
+              show_icons = false;
+              sort_by_usage = false;
+            };
+            panel = {
+              shadow = false;
+            };
           };
           theme = {
             builtin = "Catppuccin";
-            community_palette = "Oxocarbon";
+            community_palette = "Monochrome";
             mode = "dark";
             source = "wallpaper";
-            wallpaper_scheme = "soft";
+            wallpaper_scheme = "m3-monochrome";
             templates = {
               builtin_ids = [
                 "gtk3"
@@ -185,10 +166,7 @@
                 "niri"
                 "qt"
               ];
-              community_ids = [
-                "pywalfox-beta4"
-                "discord"
-              ];
+              community_ids = [ "discord" ];
               user = {
                 wal = {
                   input_path = "$XDG_CONFIG_HOME/noctalia/templates/wal.json";
@@ -203,15 +181,23 @@
           };
           wallpaper = {
             default = {
-              path = "/home/matthew/Pictures/nature.jpg";
+              path = "/home/matthew/Pictures/monochrome-fractal.png";
             };
             last = {
-              path = "/home/matthew/Pictures/nature.jpg";
+              path = "/home/matthew/Pictures/monochrome-fractal.png";
             };
             monitors = {
               eDP-1 = {
-                path = "/home/matthew/Pictures/nature.jpg";
+                path = "/home/matthew/Pictures/monochrome-fractal.png";
               };
+            };
+          };
+          widget = {
+            battery = {
+              hide_when_plugged = true;
+            };
+            workspaces = {
+              style = "minimal";
             };
           };
         };
