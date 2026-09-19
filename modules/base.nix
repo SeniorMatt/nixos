@@ -33,11 +33,12 @@
       inputs.helium.packages.${system}.default
       kdePackages.ark
       kdePackages.dolphin
+      kdePackages.dragon
       kdePackages.ffmpegthumbs
+      kdePackages.kclock
       kdePackages.koko
       kdePackages.okular
       krita
-      mpv
       obsidian
       telegram-desktop
       vesktop
@@ -50,7 +51,7 @@
           let
             documentViewer = "org.kde.okular.desktop";
             imageViewer = "org.kde.koko.desktop";
-            mediaPlayer = "mpv.desktop";
+            mediaPlayer = "org.kde.dragonplayer.desktop";
           in
           {
             "application/pdf" = documentViewer;

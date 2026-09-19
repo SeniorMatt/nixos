@@ -1,6 +1,7 @@
 { self, inputs, ... }:
 {
-  flake.nixosModules.noctalia = { pkgs, ... }: {
+  flake.nixosModules.noctalia = { pkgs, lib, ... }: {
+    imports = [ self.nixosModules.nvim-pywal ];
     environment.systemPackages = with pkgs; [
       btop
       kdePackages.qt6ct
@@ -32,7 +33,7 @@
 
           # Export noctalia's config, then run this command
           # 'cd ~/ && nix run github:erooke/toml2nix noctalia-config.toml | wl-copy && rm noctalia-config.toml'
-          # and paste the results in to 'settings'.
+          # and paste the result in to 'settings'.
 
           # Do not forget to:
           # 1. Manually remove some errors with '@' and 'plugin/name'.
@@ -269,6 +270,10 @@
             	  output_path = "$XDG_CACHE_HOME/wal/colors-wal.vim"
             	'';
         };
+	programs.kitty = {
+	  extraConfig = "include themes/noctalia.conf";
+	  themeFile = "";
+	};
         fonts.fontconfig = {
           enable = true;
           defaultFonts = {

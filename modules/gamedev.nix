@@ -12,7 +12,6 @@
       (bottles.override { removeWarningPopup = true; })
       audacity
       dotnet-sdk
-      gnome-clocks
       godot-mono
       steam-run
       tree
