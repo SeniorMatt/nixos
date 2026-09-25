@@ -10,6 +10,7 @@
 
     environment.systemPackages = with pkgs; [
       (bottles.override { removeWarningPopup = true; })
+      (godot-mono.overrideAttrs { dotnet-sdk = dotnetCorePackages.sdk_8_0-bin; })
       audacity
       dotnet-sdk
       godot-mono

@@ -40,6 +40,7 @@
       kdePackages.okular
       krita
       obsidian
+      rustdesk
       telegram-desktop
       vesktop
     ];
