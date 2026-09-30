@@ -8,10 +8,12 @@
     home-manager.users.${self.user} = { config, ... }: {
       xdg.dataFile."plasma/desktoptheme/default/translucent/colors".source =
         "${pkgs.kdePackages.libplasma}/share/plasma/desktoptheme/breeze-dark/colors";
+
       xdg.configFile."kglobalshortcutsrc" = {
         source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.nixos/modules/session/plasma/kglobalshortcutsrc";
         force = true;
       };
+
       qt = {
         enable = true;
         platformTheme.name = "kde";

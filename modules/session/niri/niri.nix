@@ -1,4 +1,4 @@
-{ self, inputs, ... }:
+{ self, ... }:
 {
   flake.nixosModules.niri = { pkgs, ... }: {
     imports = [ self.nixosModules.noctalia ];
@@ -15,14 +15,7 @@
     security.soteria.enable = true;
     services.gnome.gnome-keyring.enable = true;
 
-    environment.systemPackages = [
-      (
-        let
-          pkgs = import inputs.nixpkgs-xwayland-satellite-0-8-1 { system = "x86_64-linux"; };
-        in
-        pkgs.xwayland-satellite
-      ) # Downgrade xwayland-satellite to 0.8.1
-    ];
+    environment.systemPackages = with pkgs; [ xwayland-satellite ];
 
     services.udisks2.enable = true;
 

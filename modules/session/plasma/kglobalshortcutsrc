@@ -276,6 +276,9 @@ _launch=Meta+Shift+B
 [services][kitty.desktop]
 _launch=Meta+Shift+C
 
+[services][md.obsidian.Obsidian.desktop]
+_launch=Meta+Shift+O
+
 [services][obsidian.desktop]
 _launch=Meta+Shift+O
 

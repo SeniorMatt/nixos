@@ -17,11 +17,6 @@
       url = "github:schembriaiden/helium-browser-nix-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # Downgrading xwayland-satellite because 0.8.2 introduces a lot of issues, mainly:
-    # https://github.com/Supreeeme/xwayland-satellite/issues/470 - DaVinci Resolve crash.
-    # https://github.com/Supreeeme/xwayland-satellite/issues/468 - Steam not rendering popups properly.
-    nixpkgs-xwayland-satellite-0-8-1.url = "github:nixos/nixpkgs/edfd59b795cd752c36d2dae60870cffcd23d3fb1";
   };
 
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
