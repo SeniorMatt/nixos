@@ -270,6 +270,9 @@ switch to next activity=none,none,Switch to Next Activity
 switch to previous activity=none,none,Switch to Previous Activity
 toggle do not disturb=none,none,Toggle do not disturb
 
+[services][firefox.desktop]
+_launch=Meta+Shift+B
+
 [services][helium.desktop]
 _launch=Meta+Shift+B
 

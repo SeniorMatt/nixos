@@ -162,7 +162,7 @@
               card_borders = false;
               clipboard_confirm_clear_history = false;
               corner_radius_scale = 0.800000011920929;
-              font_family = "JetBrainsMono Nerd Font";
+              font_family = font;
               input_borders = false;
               niri_overview_type_to_launch_enabled = true;
               popup_borders = false;
@@ -192,6 +192,7 @@
                   "niri"
                 ];
                 community_ids = [
+                  "pywalfox"
                   "discord"
                 ];
                 user = {
@@ -207,15 +208,16 @@
               };
             };
             wallpaper = {
+              directory = "/home/matthew/Pictures/wallpapers";
               default = {
-                path = "/home/matthew/Pictures/clouds.jpg";
+                path = "/home/matthew/Pictures/wallpapers/forest.jpg";
               };
               last = {
-                path = "/home/matthew/Pictures/clouds.jpg";
+                path = "/home/matthew/Pictures/wallpapers/forest.jpg";
               };
               monitors = {
                 eDP-1 = {
-                  path = "/home/matthew/Pictures/clouds.jpg";
+                  path = "/home/matthew/Pictures/wallpapers/forest.jpg";
                 };
               };
             };
@@ -270,10 +272,10 @@
             	  output_path = "$XDG_CACHE_HOME/wal/colors-wal.vim"
             	'';
         };
-	programs.kitty = {
-	  extraConfig = "include themes/noctalia.conf";
-	  themeFile = "";
-	};
+        programs.kitty = {
+          extraConfig = "include themes/noctalia.conf";
+          themeFile = lib.mkForce null;
+        };
         fonts.fontconfig = {
           enable = true;
           defaultFonts = {

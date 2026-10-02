@@ -5,6 +5,9 @@
       desktopManager.plasma6.enable = true;
       displayManager.plasma-login-manager.enable = true;
     };
+
+    environment.systemPackages = with pkgs; [ wl-clipboard ];
+
     home-manager.users.${self.user} = { config, ... }: {
       xdg.dataFile."plasma/desktoptheme/default/translucent/colors".source =
         "${pkgs.kdePackages.libplasma}/share/plasma/desktoptheme/breeze-dark/colors";

@@ -32,8 +32,6 @@
       };
     in
     {
-      imports = [ inputs.nixvim.nixosModules.nixvim ];
-
       programs.nixvim = {
         extraPlugins = [ neopywal ];
         colorscheme = "neopywal";

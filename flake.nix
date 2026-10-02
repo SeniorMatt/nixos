@@ -13,10 +13,6 @@
 
     noctalia.url = "github:noctalia-dev/noctalia/cachix";
     nixvim.url = "github:nix-community/nixvim";
-    helium = {
-      url = "github:schembriaiden/helium-browser-nix-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);

@@ -30,7 +30,7 @@
 
     environment.systemPackages = with pkgs; [
       anki
-      inputs.helium.packages.${system}.default
+      firefox
       kdePackages.ark
       kdePackages.dolphin
       kdePackages.dragon
