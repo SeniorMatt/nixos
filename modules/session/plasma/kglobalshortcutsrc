@@ -288,10 +288,6 @@ _launch=Meta+Shift+O
 [services][org.godotengine.Godot4.7-mono.desktop]
 _launch=Meta+Shift+G
 
-[services][org.kde.spectacle.desktop]
-CurrentMonitorScreenShot=none
-OpenWithoutScreenshot=none
-
 [services][org.telegram.desktop.desktop]
 _launch=Meta+Shift+T
 
